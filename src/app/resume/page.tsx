@@ -238,7 +238,7 @@ const InteractiveJourney: React.FC = () => {
         {journeyData.map((item) => (
           <div
             key={item.id}
-            ref={el => nodesRef.current[item.id] = el}
+            // ref={el => nodesRef.current[item.id] = el}
             data-id={item.id}
             className={`${styles.journeyItem} ${styles[item.type]} ${activeNode === item.id ? styles.active : ''}`}
           >
