@@ -119,7 +119,7 @@ const FeaturedProjects: React.FC = () => {
             <div 
               key={project.id} 
               className={`${styles.projectCard} ${activeCard === index ? styles.active : ''}`}
-              ref={el => cardsRef.current[index] = el}
+              // ref={el => cardsRef.current[index] = el}
             >
               <div className={styles.projectImage}>
                 <Image 
