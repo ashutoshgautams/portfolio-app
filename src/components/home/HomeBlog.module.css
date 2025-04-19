@@ -1,0 +1,197 @@
+/* components/home/HomeBlog.module.css */
+.blogSection {
+    padding: 6rem 0;
+    position: relative;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    font-family: var(--font-family-heading);
+  }
+  
+  .sectionSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .postsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .postCard {
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .postCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+  }
+  
+  .postImageLink {
+    display: block;
+    position: relative;
+  }
+  
+  .postImageContainer {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .postImage {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .postCard:hover .postImage {
+    transform: scale(1.05);
+  }
+  
+  .postImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1;
+  }
+  
+  .postContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .postMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .postTag {
+    background-color: rgba(139, 92, 246, 0.1);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+  }
+  
+  .postDate {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+  }
+  
+  .postTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .postTitle a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .postTitle a:hover {
+    color: var(--color-primary);
+  }
+  
+  .postExcerpt {
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  
+  .readMoreLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .readMoreLink:hover {
+    border-bottom-color: var(--color-primary);
+  }
+  
+  .readMoreLink svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .readMoreLink:hover svg {
+    transform: translateX(4px);
+  }
+  
+  .viewAllContainer {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .viewAllButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+  }
+  
+  .viewAllButton:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  .viewAllButton svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .viewAllButton:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .postsContainer {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Light mode adjustments */
+  [data-theme="light"] .postCard:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }

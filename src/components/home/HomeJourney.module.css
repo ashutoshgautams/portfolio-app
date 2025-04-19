@@ -1,0 +1,308 @@
+/* components/home/HomeJourney.module.css */
+.journeySection {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .sectionTitle {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    font-family: var(--font-family-heading);
+  }
+  
+  .sectionSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .timelineContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .timelineTrack {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+  }
+  
+  .progressLine {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    right: 2rem;
+    height: 2px;
+    background-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-50%);
+  }
+  
+  .progressFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 0.5s ease;
+  }
+  
+  .timelineNode {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-secondary);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .timelineNode::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--color-primary),
+      var(--color-accent),
+      var(--color-primary)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .timelineNode.active {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  
+  .timelineNode.active::before {
+    opacity: 0.15;
+    animation: spin 4s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .nodeYear {
+    font-size: var(--font-size-xs);
+    transition: all 0.3s ease;
+  }
+  
+  .timelineNode:hover .nodeYear,
+  .timelineNode.active .nodeYear {
+    font-size: var(--font-size-sm);
+  }
+  
+  .journeyCards {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding: 1rem 0;
+  }
+  
+  .journeyCards::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+  
+  .journeyCard {
+    min-width: 300px;
+    max-width: 300px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 0 1rem;
+    scroll-snap-align: center;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    transform: scale(0.95) translateY(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .journeyCard.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+  }
+  
+  .cardYear {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+  
+  .cardYear::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .journeyCard.active .cardYear::after {
+    width: 100%;
+  }
+  
+  .cardTitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-heading);
+  }
+  
+  .cardSubtitle {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .cardDescription {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  
+  .viewMore {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .viewMoreButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .viewMoreButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    z-index: -1;
+    transform: rotate(180deg);
+    transition: opacity 0.3s ease;
+  }
+  
+  .viewMoreButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+  }
+  
+  .viewMoreButton:hover::before {
+    opacity: 1;
+  }
+  
+  .viewMoreButton svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .viewMoreButton:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .timelineTrack {
+      padding: 0 1rem;
+      overflow-x: auto;
+      justify-content: flex-start;
+      gap: 2rem;
+    }
+    
+    .progressLine {
+      left: 1rem;
+      right: 1rem;
+    }
+    
+    .timelineNode {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    
+    .journeyCard {
+      min-width: 250px;
+      max-width: 250px;
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .journeySection {
+      padding: 4rem 0;
+    }
+    
+    .timelineNode {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .nodeYear {
+      font-size: 10px;
+    }
+    
+    .journeyCard {
+      min-width: 220px;
+      max-width: 220px;
+      padding: 1.25rem;
+      margin: 0 0.5rem;
+    }
+  }
+  
+  /* Light mode adjustments */
+  [data-theme="light"] .journeyCard {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  [data-theme="light"] .journeyCard.active {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+  }

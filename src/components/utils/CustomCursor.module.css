@@ -1,0 +1,74 @@
+/* Custom cursor styles */
+:root {
+    --cursor-x: 0px;
+    --cursor-y: 0px;
+  }
+  
+  * {
+    cursor: none;
+  }
+  
+  .cursor {
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+  }
+  
+  .cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: var(--cursor-y);
+    left: var(--cursor-x);
+    transition: width 0.2s, height 0.2s, opacity 0.2s;
+    z-index: 9999;
+  }
+  
+  .cursor-ring {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: var(--cursor-y);
+    left: var(--cursor-x);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+    z-index: 9998;
+  }
+  
+  /* Interactions */
+  a:hover ~ .cursor-dot,
+  button:hover ~ .cursor-dot,
+  input:hover ~ .cursor-dot,
+  textarea:hover ~ .cursor-dot {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  
+  a:hover ~ .cursor-ring,
+  button:hover ~ .cursor-ring,
+  input:hover ~ .cursor-ring,
+  textarea:hover ~ .cursor-ring {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+    border-color: var(--color-primary);
+  }
+  
+  /* Hide on mobile/touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+    
+    .cursor-dot,
+    .cursor-ring {
+      display: none !important;
+    }
+  }

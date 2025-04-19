@@ -1,0 +1,402 @@
+/* components/layout/Header.module.css (updated) */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 18, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.scrolled .backdrop {
+  opacity: 1;
+  background: rgba(18, 18, 18, 0.85);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoWrapper {
+  position: relative;
+  z-index: 100;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logoLink:hover {
+  transform: translateY(-2px);
+}
+
+.logo {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--color-text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.lineDecoration {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform-origin: left;
+  transform: scaleX(0.5);
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover .lineDecoration {
+  transform: scaleX(0.8);
+}
+
+.logoFull {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.scrolled .logoFull {
+  opacity: 1;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+.navLinkText {
+  position: relative;
+  z-index: 1;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform-origin: left;
+  animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.navLink.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Actions */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ctaButton {
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  z-index: -1;
+  transform: scale(1.5) rotate(15deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.ctaButton:hover::before {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.ctaIcon {
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: translateX(3px);
+}
+
+/* Mobile menu button - FIXED */
+.menuButton {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001; /* Higher than nav backdrop to ensure it's clickable */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.menuButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(139, 92, 246, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menuButton:hover::before {
+  opacity: 1;
+}
+
+.menuButtonInner {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.menuLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+/* Hamburger to X animation - FIXED */
+.menuButton.active .menuLine:first-child {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--color-primary);
+}
+
+.menuButton.active .menuLine:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--color-primary);
+}
+
+.navBackdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.97);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .backdrop {
+  background: rgba(250, 250, 250, 0.2);
+}
+
+[data-theme="light"] .scrolled .backdrop {
+  background: rgba(250, 250, 250, 0.85);
+}
+
+[data-theme="light"] .navBackdrop {
+  background: rgba(240, 240, 240, 0.97);
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+  .header {
+    height: 70px;
+  }
+  
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav {
+    position: fixed;
+    inset: 0;
+    z-index: 999; /* Lower than menuButton */
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 2rem;
+    gap: 3rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .nav.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  
+  .navBackdrop {
+    display: block;
+  }
+  
+  .nav.open .navBackdrop {
+    opacity: 1;
+  }
+  
+  .navList {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .navLink {
+    font-size: var(--font-size-xl);
+    padding: 0.75rem 0;
+  }
+  
+  .activeIndicator {
+    left: 50%;
+    width: 30%;
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(0);
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-50%) scaleX(0);
+    }
+    to {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  
+  .navActions {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .ctaButton {
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+  }
+  
+  .logoFull {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    height: 60px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logoText {
+    font-size: 1.5rem;
+  }
+  
+  .navLink {
+    font-size: var(--font-size-lg);
+  }
+  
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-md);
+  }
+}
