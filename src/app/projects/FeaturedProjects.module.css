@@ -1,0 +1,325 @@
+/* components/home/FeaturedProjects.module.css */
+.featuredProjects {
+  padding: 6rem 0;
+  position: relative;
+  perspective: 1000px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-4xl);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius-full);
+  transition: width 0.3s ease;
+}
+
+.sectionHeader:hover .sectionTitle::after {
+  width: 120px;
+}
+
+.sectionSubtitle {
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  font-size: var(--font-size-lg);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.projectCard {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
+.projectCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  border-radius: var(--border-radius-lg);
+  transform: translateZ(-10px);
+}
+
+.projectCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
+
+.projectCard.active {
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);
+  border-color: var(--color-primary);
+}
+
+.projectCard:hover::before {
+  opacity: 0.05;
+}
+
+.projectImage {
+  overflow: hidden;
+  height: 220px;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projectCard:hover .image {
+  transform: scale(1.08);
+}
+
+.shimmerOverlay {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  transition: transform 0.6s ease;
+  transform: skewX(-20deg);
+  z-index: 1;
+}
+
+.projectCard:hover .shimmerOverlay {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.projectContent {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transform: translateZ(20px);
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectContent {
+  transform: translateZ(30px);
+}
+
+.projectTitle {
+  font-size: var(--font-size-xl);
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.projectTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projectCard:hover .projectTitle::after {
+  width: 100%;
+}
+
+.projectDescription {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: var(--color-primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  transform: translateZ(5px);
+}
+
+.tag:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateZ(10px) scale(1.05);
+}
+
+.viewProjectButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.viewProjectButton::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewProjectButton:hover {
+  color: var(--color-primary-light);
+  transform: translateX(5px);
+}
+
+.viewProjectButton:hover::before {
+  transform: scaleX(1);
+}
+
+.buttonIcon {
+  transition: transform 0.3s ease;
+}
+
+.viewProjectButton:hover .buttonIcon {
+  transform: translateX(3px);
+}
+
+.allProjectsLink {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.viewAllButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  transform: rotate(180deg);
+}
+
+.viewAllButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.viewAllButton:hover::before {
+  opacity: 1;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+.viewAllButton:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projectCard {
+    transform: none !important;
+  }
+  
+  .projectContent {
+    transform: none !important;
+  }
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .tag {
+  background-color: rgba(139, 92, 246, 0.15);
+}

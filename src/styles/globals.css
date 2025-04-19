@@ -1,18 +1,11 @@
 /* styles/globals.css */
-@import '../styles/variables.css';
+@import './variables.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono&display=swap');
-
-:root {
-  --cursor-x: 0px;
-  --cursor-y: 0px;
-  --header-height: 80px;
-}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none;
 }
 
 html,
@@ -22,7 +15,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -94,7 +86,6 @@ pre {
   margin: 0 auto;
   width: 100%;
   padding: 0 1.5rem;
-  padding-top: var(--header-height); /* Dynamic padding based on header height */
 }
 
 .section {
@@ -106,8 +97,6 @@ pre {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  position: relative;
-  display: inline-block;
 }
 
 .blur-bg {
@@ -115,52 +104,9 @@ pre {
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(59, 130, 246, 0.15);
   filter: blur(100px);
   z-index: -1;
-}
-
-/* Custom cursor */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--color-primary);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 999;
-  transform: translate(-50%, -50%);
-  top: var(--cursor-y);
-  left: var(--cursor-x);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 998;
-  transform: translate(-50%, -50%);
-  top: var(--cursor-y);
-  left: var(--cursor-x);
-  transition: all 0.1s ease-out;
-}
-
-a:hover ~ .cursor-dot,
-button:hover ~ .cursor-dot {
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-accent);
-}
-
-a:hover ~ .cursor-outline,
-button:hover ~ .cursor-outline {
-  width: 50px;
-  height: 50px;
-  border-color: rgba(236, 72, 153, 0.4);
 }
 
 /* Animations */
@@ -174,47 +120,10 @@ button:hover ~ .cursor-outline {
   to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
 }
 
 .animate-slideUp {
   animation: slideUp 0.5s ease-out;
-}
-
-.animate-pulse {
-  animation: pulse 3s infinite ease-in-out;
-}
-
-.animate-float {
-  animation: float 4s infinite ease-in-out;
-}
-
-/* For homepage specifically, hero should be full height and not have top padding */
-.homePage .main {
-  padding-top: 0;
-}
-
-/* Hide cursor on mobile devices */
-@media (max-width: 768px) {
-  * {
-    cursor: auto;
-  }
-  
-  .cursor-dot,
-  .cursor-outline {
-    display: none;
-  }
 }

@@ -1,0 +1,49 @@
+/* components/ThemeSwitcher.module.css */
+.themeToggle {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .themeToggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    border-radius: var(--border-radius-full);
+    transform: scale(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .themeToggle:hover {
+    color: var(--color-text-primary);
+    transform: translateY(-2px);
+  }
+  
+  .themeToggle:hover::before {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  
+  .themeToggle svg {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .themeToggle:hover svg {
+    transform: rotate(15deg) scale(1.1);
+  }

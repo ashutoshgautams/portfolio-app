@@ -1,0 +1,67 @@
+/* components/utils/FluidInteraction.module.css */
+.fluidContainer {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .particle {
+    position: absolute;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    width: var(--size, 10px);
+    height: var(--size, 10px);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    opacity: var(--opacity, 0.2);
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 1s ease;
+  }
+  
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.4) 0%,
+      rgba(139, 92, 246, 0) 70%
+    );
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Floating elements animation */
+  .floatingElement {
+    animation: float 5s ease-in-out infinite;
+    transition: transform 0.3s ease-out;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Hover effect for interactive elements within fluid container */
+  .fluidContainer:hover .interactiveElement {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Special styles for dark mode */
+  [data-theme="dark"] .particle {
+    background: linear-gradient(135deg, var(--color-lavender-primary), var(--color-pink-accent));
+  }
+  
+  [data-theme="light"] .particle {
+    background: linear-gradient(135deg, var(--color-lavender-dark), var(--color-lavender-light));
+  }
