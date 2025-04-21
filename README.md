@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ashutosh Gautam's Portfolio
 
-## Getting Started
+![Portfolio Banner](public/profile.jpg)
 
-First, run the development server:
+## 🚀 Overview
 
+A modern, responsive portfolio website for Ashutosh Gautam, a Full-Stack Developer and UI Designer. This website showcases professional experience, projects, a blog, and provides a contact platform for potential clients and collaborators.
+
+Live site: [ashutoshgautam.com](https://ashutoshgautam.com)
+
+## ✨ Features
+
+- **Responsive Design**: Optimized for all device sizes
+- **Dark/Light Mode**: User preference-based theme switching with localStorage persistence
+- **Interactive UI Elements**: Custom cursor, fluid animations, and parallax effects
+- **Blog Platform**: Showcase technical writing and insights
+- **Project Portfolio**: Highlight development and design work
+- **Professional Resume/Journey**: Timeline-based career and education showcase
+- **SEO Optimized**: Meta tags, semantic HTML, and performance optimizations
+- **Accessibility Focused**: WCAG compliance for inclusive user experience
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: CSS Modules with custom variables and theme support
+- **Animations**: Custom React animations with CSS transitions
+- **Deployment**: Vercel
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/ashutoshgautam/portfolio-website.git
+cd portfolio-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── app/                     # Next.js App Router pages
+│   ├── blog/                # Blog section
+│   ├── contact/             # Contact page
+│   ├── projects/            # Projects showcase
+│   ├── resume/              # Professional journey
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Homepage
+├── components/              # React components
+│   ├── home/                # Homepage components
+│   ├── layout/              # Layout components (Header, Footer)
+│   └── utils/               # Utility components (CustomCursor, FluidInteraction)
+├── public/                  # Static assets (images, icons)
+├── styles/                  # Global styles and variables
+│   ├── globals.css          # Global CSS
+│   └── variables.css        # CSS variables and theming
+└── README.md                # Project documentation
+```
 
-## Learn More
+## 🎨 Design Elements
 
-To learn more about Next.js, take a look at the following resources:
+- **Color Palette**: Purple and pink gradient accents on dark/light backgrounds
+- **Typography**: Inter (body), Poppins (headings), JetBrains Mono (code)
+- **Animations**: Subtle parallax, hover effects, and scroll-triggered animations
+- **UI Elements**: Custom cursor, fluid interactions, card designs with hover effects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔍 SEO Optimization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The website implements comprehensive SEO best practices:
 
-## Deploy on Vercel
+- **Semantic HTML5**: Proper use of heading hierarchy and semantic elements
+- **Meta Tags**: Title, description, Open Graph, and Twitter Card tags
+- **Structured Data**: JSON-LD schema for better search engine understanding
+- **Performance Optimization**: Image optimization, code splitting, and efficient loading
+- **Responsive Design**: Mobile-friendly experience for all users
+- **Sitemap**: XML sitemap for improved search engine crawling
+- **Canonical URLs**: Prevention of duplicate content issues
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Responsive Breakpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Mobile**: < 640px
+- **Tablet**: 641px - 768px
+- **Laptop**: 769px - 1024px
+- **Desktop**: > 1025px
+
+## 🚥 Performance Optimization
+
+- Next.js Image component for optimized images
+- CSS Modules to minimize CSS footprint
+- Lazy-loading of non-critical components
+- Font optimization with proper subset loading
+- React component code-splitting
+
+## 🌐 Browser Support
+
+- Chrome/Edge (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Author
+
+**Ashutosh Gautam**
+- [LinkedIn](https://www.linkedin.com/in/ashutosh-gautam-3747b3179/)
+- [GitHub](https://github.com/ashutoshgautams)
+- [Twitter](https://twitter.com/ashutoshgautams)
+
+---
+
+© 2025 Ashutosh Gautam. All rights reserved.
