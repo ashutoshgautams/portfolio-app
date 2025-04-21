@@ -1,6 +1,7 @@
 # Ashutosh Gautam's Portfolio
 
-![Portfolio Banner](public/profile.jpg)
+![image](https://github.com/user-attachments/assets/0e5f7c7d-f18b-4247-9f80-f0126b7a3ab8)
+
 
 ## 🚀 Overview
 
