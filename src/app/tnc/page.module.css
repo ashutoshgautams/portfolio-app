@@ -1,0 +1,324 @@
+/* app/tnc/page.module.css */
+.tncPage {
+    padding: 2rem 0 4rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .contentContainer {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sidebar {
+    width: 280px;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    height: fit-content;
+    flex-shrink: 0;
+  }
+  
+  .tocContainer {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+  }
+  
+  .tocContainer:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+    transform: translateY(-3px);
+  }
+  
+  .tocTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+  
+  .tocTitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 60px;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .tocContainer:hover .tocTitle::after {
+    width: 100%;
+  }
+  
+  .tocList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .tocLink {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-secondary);
+    transition: var(--transition-normal);
+    font-size: var(--font-size-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tocLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .tocLink:hover {
+    color: var(--color-primary);
+    padding-left: 1rem;
+  }
+  
+  .tocLink:hover::before {
+    opacity: 0.1;
+  }
+  
+  .mainContent {
+    flex: 1;
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .sectionTitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-primary);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+  
+  .sectionTitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 60px;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .section:hover .sectionTitle::after {
+    width: 100px;
+  }
+  
+  .sectionContent {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+  
+  .sectionContent p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .sectionContent p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .contentList {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .contentList li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .contentLink {
+    position: relative;
+    color: var(--color-primary);
+    transition: var(--transition-normal);
+  }
+  
+  .contentLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .contentLink:hover {
+    color: var(--color-primary-light);
+  }
+  
+  .contentLink:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .contactInfo {
+    background-color: rgba(139, 92, 246, 0.1);
+    padding: 1.25rem;
+    border-radius: var(--border-radius-md);
+    margin-top: 1rem;
+  }
+  
+  .lastUpdated {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    text-align: right;
+    font-style: italic;
+  }
+  
+  .actionButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+  
+  .backButton, .contactButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .backButton {
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+  }
+  
+  .contactButton {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .buttonIcon {
+    transition: transform 0.3s ease;
+  }
+  
+  .backButton:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateX(-3px);
+  }
+  
+  .backButton:hover .buttonIcon {
+    transform: translateX(-3px);
+  }
+  
+  .contactButton:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .contactButton:hover .buttonIcon {
+    transform: translateX(3px);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .contentContainer {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .sidebar {
+      width: 100%;
+      position: static;
+      margin-bottom: 2rem;
+    }
+    
+    .tocContainer {
+      padding: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .tncPage {
+      padding: 1rem 1.5rem 3rem;
+    }
+    
+    .mainContent {
+      padding: 1.5rem;
+    }
+    
+    .title {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .sectionTitle {
+      font-size: var(--font-size-lg);
+    }
+    
+    .actionButtons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .backButton, .contactButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }
